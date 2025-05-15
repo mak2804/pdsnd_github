@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-.github/**
-=======
 chicago.csv
-ew_york_city.csv
-washington.csv
->>>>>>> 1874b57 (Add bikeshare script and update .gitignore to exclude data files)
+ew_york_city.csv\washington.csv
