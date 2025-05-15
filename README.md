@@ -27,3 +27,6 @@ Users can view statistics such as:
 ### Credits
 - [Udacity Data Analyst Nanodegree Program](https://www.udacity.com/)
 - Python documentation: https://docs.python.org/
+
+## How to Run
+Run the script using: python bikeshare.py
