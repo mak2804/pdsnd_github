@@ -14,10 +14,13 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all"
     """
     print('Hello! Let\'s explore some US bikeshare data!')
+    print("Type 'exit' at any time to quit.\n")
 
     # Get city
     while True:
         city = input("Would you like to see data for Chicago, New York City or Washington? ").strip().lower()
+        if city == 'exit':
+            exit("Exiting program. Goodbye!")
         if city in CITY_DATA:
             break
         else:
@@ -26,6 +29,8 @@ def get_filters():
     # Get filter type
     while True:
         filter_type = input("Would you like to filter the data by 'month', 'day', or 'both'? ").strip().lower()
+        if filter_type == 'exit':
+            exit("Exiting program. Goodbye!")
         if filter_type in ['month', 'day', 'both']:
             break
         else:
@@ -40,6 +45,8 @@ def get_filters():
         months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
         while True:
             month = input("Which month? January, February, March, April, May, June or all? ").strip().lower()
+            if month == 'exit':
+                exit("Exiting program. Goodbye!")
             if month in months:
                 break
             else:
@@ -50,6 +57,8 @@ def get_filters():
         days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
         while True:
             day = input("Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or all? ").strip().lower()
+            if day == 'exit':
+                exit("Exiting program. Goodbye!")
             if day in days:
                 break
             else:
@@ -58,15 +67,15 @@ def get_filters():
     print('-'*40)
     return city, month, day
 
-
-
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
+
     Args:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
+
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
@@ -83,7 +92,9 @@ def load_data(city, month, day):
     if day != 'all':
         df = df[df['day_of_week'].str.lower() == day.lower()]
 
+    print(f"Data loaded. {len(df)} records after applying filters.")
     return df
+
 def display_raw_data(df):
     """Displays 5 lines of raw data upon user request."""
     i = 0
